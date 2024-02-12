@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Academy: Седона, главная страница</title>
+    <title>HTML Academy: Седона, каталог</title>
     <link rel="stylesheet" href="style.css">
   </head>
 
@@ -14,7 +14,7 @@
       <nav class="header__nav">
         <!-- Logo -->
         <a class="header__logo-link" href="index.html">
-          <span class="visually-hidden">Логотип города Седоны, перейти на главную страницу сайта</span>
+          <span class="visually-hidden">Логотип Седоны, перейти на главную страницу сайта</span>
           <svg class="header__logo-icon" aria-hidden="true" focusable="false" width="140" height="70"
             viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_100106_129)">
@@ -50,26 +50,25 @@
         <!-- Navigation -->
         <ul class="navigation">
           <li class="navigation__item">
-            <a class="navigation__link navigation__link--current" title="Вы уже на главной странице!">Главная</a>
+            <a class="navigation__link" href="index.html">Главная</a>
           </li>
           <li class="navigation__item">
             <a class="navigation__link" href="#">О Седоне</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="catalog.html">Гостиницы</a>
+            <a class="navigation__link navigation__link--current"
+              title="Вы уже на странице выбор гостиниц!">Гостиницы</a>
           </li>
         </ul>
         <!-- User menu -->
         <ul class="navigation user-menu">
           <li class="user-menu__item">
-            <a class="user-menu__link" href="#">
-              <span class="visually-hidden">Поиск</span>
-            </a>
+            <span class="visually-hidden">Поиск</span>
+            <a class="user-menu__link" href="#"></a>
           </li>
           <li class="user-menu__item">
-            <a class="user-menu__link" href="#">
-              <span class="visually-hidden">Избранное</span>
-            </a>
+            <span class="visually-hidden">Избранное</span>
+            <a class="user-menu__link" href="#"></a>
           </li>
           <li class="user-menu__item">
             <a class="user-menu__link button" href="#">Хочу сюда!</a>
@@ -77,77 +76,206 @@
         </ul>
       </nav>
     </header>
-    <!-- Main -->
-    <main class="main-index">
-      <h1 class="visually-hidden">
-        Сайт об отдыхе в городе Седона.
-      </h1>
-      <!-- Promo -->
-      <section class="promo">
-        <h2 class="visually-hidden">Добро пожаловать в Седону!</h2>
-        <img class="promo__img" src="#" alt="Добро пожаловать в прекрасный город Седону!">
+    <main class="main-catalog">
+      <h1 class="main-catalog__title">Гостиницы Седоны</h1>
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="index.html">
+              <span class="visually-hidden">Перейти на главную страницу</span>
+            </a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" title="Вы уже на странице выбор гостиниц!">
+              Гостиницы
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <!-- Filters -->
+      <section class="filters">
+        <h2 class="visually-hidden">
+          Список фильтров для выбора гостиниц
+        </h2>
+        <form class="filters__form" action="https://echo.htmlacademy.ru/" method="post">
+          <!-- Сheckbox -->
+          <fieldset class="filters__group">
+            <legend class="filters__title">
+              Инфраструктура:
+            </legend>
+            <ul class="filters__list">
+              <li class="filters__item">
+                <label class="filters__control">
+                  <input class="filters__input" type="checkbox" name="swimming-pool" checked>
+                  Бассейн
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__control">
+                  <input class="filters__input" type="checkbox" name="parking" checked>
+                  Парковка
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__control">
+                  <input class="filters__input" type="checkbox" name="wi-fi">
+                  Wi-Fi
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <!-- Radio -->
+          <fieldset class="filters__group">
+            <legend class="filters__group">
+              Тип жилья:
+            </legend>
+            <ul class="filters__list">
+              <li class="filters__item">
+                <label class="filters__control">
+                  <input class="filters__input" type="radio" name="type-of-housing" value="hotel" checked>
+                  Гстиница
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__control">
+                  <input class="filters__input" type="radio" name="type-of-housing" value="motel">
+                  Мотель
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__control">
+                  <input class="filters__input" type="radio" name="type-of-housing" value="apartments">
+                  Аппартаменты
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <!-- Range-price -->
+          <fieldset class="filters__group range">
+            <legend class="filters__title">
+              Стоимость, ₽:
+            </legend>
+            <div class="range__price-container">
+              <ul class="range__list">
+                <li class="range__item">
+                  <label class="range__title" for="price-min"></label>
+                  <input class="range__input" type="number" id="price-min" value="0">
+                </li>
+                <li class="range__item">
+                  <label class="range__title" for="price-min"></label>
+                  <input class="range__input" type="number" id="price-max" value="9000">
+                </li>
+              </ul>
+            </div>
+          </fieldset>
+          <!-- Form-buttons -->
+          <div class="filters__buttons">
+            <button class="filters__submit button" type="submit">Применить</button>
+            <label class="filters__reset">
+              <input class="filters__reset-input button" type="reset" name="reset">
+            </label>
+          </div>
+        </form>
       </section>
-      <!-- Advantages -->
-      <section class="advantages">
-        <h2 class="visually-hidden">Преимущества</h2>
-        <div class="advantages__discription">
-          <p class="advantages__promo">Седона — небольшой городок в Аризоне, заслуживающий большего!</p>
-          <p class="advantages__reasons">Рассмотрим причины, по которым Седона круче, чем Гранд-Каньон!</p>
-        </div>
-        <ul class="advantages__list">
-          <li class="advantages__item">
-            <h3 class="advantages__title">Настоящий городок</h3>
-            <p class="advantages__text">Седона — не аттракцион для туристов, там течёт своя жизнь</p>
-            <img class="advantages__img" src="#" alt="Городское кафе">
+      <!-- Sorting -->
+      <section class="sorting">
+        <h2 class="visually-hidden">
+          Сортировка гостиниц
+        </h2>
+        <p class="sorting__amont">Найдено гостиниц: 38</p>
+        <select class="sorting__control" name="sorting" aria-label="Сортировка гостиниц">
+          <option value="cheap">Сначала дешевые</option>
+          <option value="expensive">Сначала дорогие</option>
+          <option value="popular">Сначала популярные</option>
+        </select>
+        <ul class="sorting__show show">
+          <li class="show__item">
+            <a class="show__link" href="#">
+              <span class="visually-hidden">Показать плиткой</span>
+            </a>
           </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Небольшая площадь</h3>
-            <p class="advantages__text">Все достопримечательности находятся очень близко</p>
+          <li class="show__item">
+            <a class="show__link" href="#">
+              <span class="visually-hidden">Показать слайдами</span>
+            </a>
           </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Красивая
-              дорога</h3>
-            <p class="advantages__text">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
-          </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Мало
-              туристов</h3>
-            <p class="advantages__text">Большинство едет в Гранд Каньон и толпится там</p>
-          </li>
-          <li class="advantages__item">
-            <img class="advantages__img" src="#" alt="Каньон">
-            <h3 class="advantages__title">Там есть
-              мост дьявола</h3>
-            <p class="advantages__text">Да, по нему можно пройти! Если вы осмелитесь, разумеется</p>
-          </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Приезжайте в Седону отдохнуть в комфорте и уюте!</h3>
-            <p class="advantages__text">Опытный персонал и качественное обслуживание!</p>
-          </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Жильё</h3>
-            <p class="advantages__text">Рекомендуем пожить в настоящем мотеле,
-              всё как в кино!</p>
-          </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Еда</h3>
-            <p class="advantages__text">Всегда заказывайте
-              топовый фирменный бургер, вы не разочаруетесь!</p>
-          </li>
-          <li class="advantages__item">
-            <h3 class="advantages__title">Сувениры</h3>
-            <p class="advantages__text">Не только китайского,
-              но и настоящего местного производства!</p>
+          <li class="show__item">
+            <a class="show__link" href="#">
+              <span class="visually-hidden">Показать списком</span>
+            </a>
           </li>
         </ul>
       </section>
-      <!-- Search -->
-      <section class="search">
-        <h2 class="visually-hidden">Поиск гостиниц в Седоне</h2>
-        <p class="search__promo">Заинтересовались?</p>
-        <span class="search__text">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в
-          Седоне</span>
-        <a class="search__link button" href="#">Поиск гостиницы в Седоне</a>
+      <!-- Catalog -->
+      <section class="catalog">
+        <h2 class="visually-hidden">Каталог</h2>
+        <ul class="catalog__list">
+          <li class="catalog__item">
+            <img class="catalog__img" src="#" alt="Каньон на фоне звездного неба.">
+            <h3 class="catalog__title">Amara Resort & Spa</h3>
+            <p class="catalog__price">Гостиница</p>
+            <p class="catalog__price">От 4000 ₽</p>
+            <a class="catalog__link button" href="#">Подробнее</a>
+            <button class="catalog__button button" type="button">В избранное</button>
+            <span class="catalog__rating-img"></span>
+            <span class="catalog__rating">Рейтинг: 8,5</span>
+          </li>
+          <li class="catalog__item">
+            <img class="catalog__img" src="#" alt="Горы на фоне пасмурного неба и радуги.">
+            <h3 class="catalog__title">Villas at Poco Diablo</h3>
+            <p class="catalog__price">Гостиница</p>
+            <p class="catalog__price">От 5000 ₽</p>
+            <a class="catalog__link button" href="#">Подробнее</a>
+            <button class="catalog__button button" type="button">В избранное</button>
+            <span class="catalog__rating-img"></span>
+            <span class="catalog__rating">Рейтинг: 9,2</span>
+          </li>
+          <li class="catalog__item">
+            <img class="catalog__img" src="#" alt="Горы на фоне ясного неба.">
+            <h3 class="catalog__title">Desert Quail Inn</h3>
+            <p class="catalog__price">Гостиница</p>
+            <p class="catalog__price">От 2500 ₽</p>
+            <a class="catalog__link button" href="#">Подробнее</a>
+            <button class="catalog__button button" type="button">В избранное</button>
+            <span class="catalog__rating-img"></span>
+            <span class="catalog__rating">Рейтинг: 6,9</span>
+          </li>
+          <li class="catalog__item">
+            <img class="catalog__img" src="#" alt="Горы на фоне ночного неба.">
+            <h3 class="catalog__title">GreenTree Inn</h3>
+            <p class="catalog__price">Гостиница</p>
+            <p class="catalog__price">От 1500 ₽</p>
+            <a class="catalog__link button" href="#">Подробнее</a>
+            <button class="catalog__button button" type="button">В избранное</button>
+            <span class="catalog__rating-img"></span>
+            <span class="catalog__rating">Рейтинг: 5,0</span>
+          </li>
+        </ul>
+      </section>
+      <!-- Pagination -->
+      <section class="pagination">
+        <h2 class="visually-hidden">Навигация по страницам каталога</h2>
+        <ul class="pagination__list">
+          <li class="pagination__item">
+            <a class="pagination__link pagination__link--current" href="#">1</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">2</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">3</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">4</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link pagination__link--" href="#">...</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">10</a>
+          </li>
+        </ul>
       </section>
       <!-- Subscription -->
       <section class="subscription">
